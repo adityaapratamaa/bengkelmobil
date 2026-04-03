@@ -13,8 +13,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- ===== LIBRARIES ===== -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style">
+  <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <!-- ===== MAIN CSS ===== -->
   <link rel="stylesheet" href="style.css">
@@ -698,14 +701,19 @@
 <script>
 
   /* AOS */
-  AOS.init({ duration: 700, once: true, offset: 60 });
-
-  /* Navbar scrolled */
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
-    const prog = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-    document.getElementById('scroll-progress').style.width = prog + '%';
+  /* AOS init - Diperbaiki agar tidak merusak layout saat loading */
+  window.addEventListener('load', function() {
+    AOS.init({
+      duration: 800, // Sedikit lebih cepat agar terasa responsif
+      once: true,
+      offset: 50,    // Jarak scroll lebih pendek agar elemen cepat muncul
+      disable: false // Tetap aktif di semua perangkat
+    });
+    
+    // Memaksa AOS menghitung ulang posisi elemen setelah semua aset masuk
+    setTimeout(function() {
+        AOS.refresh();
+    }, 500);
   });
 
   /* Mobile menu */

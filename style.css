@@ -20,6 +20,22 @@
   --radius: 12px;
   --radius-lg: 20px;
 }
+/* Mencegah elemen berantakan sebelum AOS (JS) aktif */
+[data-aos] {
+  pointer-events: none;
+  visibility: hidden; /* Sembunyikan dulu sementara */
+}
+
+.aos-init [data-aos] {
+  visibility: visible; /* Tampilkan setelah AOS siap */
+  pointer-events: auto;
+}
+
+/* Berikan tinggi minimal pada slider agar tidak 'kempes' saat loading */
+.swiper {
+  min-height: 300px; /* Sesuaikan dengan tinggi rata-rata slider mobile kamu */
+  background: var(--dark2); /* Warna placeholder agar tidak putih kosong */
+}
 
 *,
 *::before,
@@ -40,6 +56,8 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
   padding-top: 72px;
+  text-rendering: optimizeLegibility; /* Mempercepat kalkulasi teks */
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
