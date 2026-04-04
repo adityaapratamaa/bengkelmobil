@@ -31,6 +31,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* FIX: cegah horizontal overflow di level html */
 }
 
 body {
@@ -354,8 +355,9 @@ body::before {
 =========================== */
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh; /* fix: pakai small viewport height agar tidak terpengaruh address bar mobile */
+  min-height: 100vh;               /* fallback browser lama */
+  min-height: 100svh;              /* fallback svh */
+  min-height: calc(var(--vh, 1vh) * 100); /* FIX UTAMA: pakai JS-injected --vh */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -1662,6 +1664,29 @@ body::before {
     white-space: nowrap;
     width: calc(100% - 32px);
   }
+
+  /* FIX AOS: paksa semua elemen data-aos langsung visible di mobile
+     Tanpa ini, elemen invisible (opacity:0) sampai di-scroll → tampak blank */
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    pointer-events: auto !important;
+  }
+  [data-aos].aos-animate {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* FIX PADDING: kurangi padding section dari 120px → 60px di mobile */
+  .services        { padding: 60px 0; }
+  .about           { padding: 60px 0; }
+  .process         { padding: 60px 0; }
+  .gallery         { padding: 60px 0; }
+  .testi           { padding: 60px 0; }
+  .packages        { padding: 60px 0; }
+  .faq             { padding: 60px 0; }
+  .contact-cta     { padding: 60px 0; }
 
   /* Hero */
   .hero               { padding: 60px 0 80px; }

@@ -6,26 +6,41 @@
   <title>AutoPrime Workshop | Bengkel Mobil Professional 10+ Tahun</title>
   <meta name="description" content="Bengkel mobil terpercaya 10+ tahun. Service lengkap: tune-up, ganti oli, ban, AC, rem, dan lainnya. Teknisi berpengalaman, harga transparan.">
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2554/2554942.png">
-
+ 
   <!-- ===== FONTS ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+ 
   <!-- ===== LIBRARIES ===== -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+ 
   <!-- ===== MAIN CSS ===== -->
   <link rel="stylesheet" href="style.css">
+ 
+  <!-- FIX: Set --vh CSS variable berdasarkan window.innerHeight yang akurat
+       Ini mengatasi bug 100vh di Android Chrome / mobile browser
+       yang menghitung vh termasuk area address bar -->
+  <script>
+    (function () {
+      function setVH() {
+        var vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', vh + 'px');
+      }
+      setVH();
+      window.addEventListener('resize', setVH);
+      window.addEventListener('orientationchange', setVH);
+    })();
+  </script>
 </head>
 <body>
-
+ 
 <!-- ============================
      SCROLL PROGRESS BAR
 ============================ -->
 <div id="scroll-progress"></div>
-
+ 
 <!-- ============================
      NAVBAR
 ============================ -->
@@ -54,7 +69,7 @@
     </div>
   </div>
 </nav>
-
+ 
 <!-- ============================
      MOBILE MENU
 ============================ -->
@@ -68,12 +83,12 @@
     💬 Hubungi via WhatsApp
   </a>
 </div>
-
+ 
 <!-- ============================
      HERO
 ============================ -->
 <section class="hero" id="home">
-
+ 
   <!-- Background Slideshow (ubah URL di sini untuk ganti foto) -->
   <div class="hero-slides" id="heroSlides">
     <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=1600&q=80')"></div>
@@ -82,9 +97,9 @@
     <div class="hero-slide"        style="background-image: url('https://images.unsplash.com/photo-1504222490345-c075b7b4dc1a?auto=format&fit=crop&w=1600&q=80')"></div>
   </div>
   <div class="hero-overlay"></div>
-
+ 
   <div class="container hero-content">
-
+ 
     <!-- Kiri: Teks -->
     <div class="hero-left" data-aos="fade-right">
       <div class="hero-eyebrow">
@@ -124,7 +139,7 @@
         </div>
       </div>
     </div>
-
+ 
     <!-- Kanan: Floating Card -->
     <div class="hero-card" data-aos="fade-left">
       <div class="hero-open-badge">
@@ -146,9 +161,9 @@
         📅 Jadwalkan Servis
       </a>
     </div>
-
+ 
   </div>
-
+ 
   <!-- Navigasi Dots Slideshow -->
   <div class="hero-nav-dots" id="heroDots">
     <div class="hero-dot active" onclick="goSlide(0)"></div>
@@ -156,15 +171,15 @@
     <div class="hero-dot"        onclick="goSlide(2)"></div>
     <div class="hero-dot"        onclick="goSlide(3)"></div>
   </div>
-
+ 
   <!-- Scroll Indicator -->
   <div class="scroll-indicator">
     <span>Scroll</span>
     <span>↓</span>
   </div>
-
+ 
 </section>
-
+ 
 <!-- ============================
      BRAND MARQUEE
 ============================ -->
@@ -197,7 +212,7 @@
     <span class="brand-item">Isuzu</span>        <span class="brand-dot">•</span>
   </div>
 </div>
-
+ 
 <!-- ============================
      STATS
 ============================ -->
@@ -227,7 +242,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ============================
      SERVICES
 ============================ -->
@@ -284,7 +299,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ============================
      ABOUT
 ============================ -->
@@ -333,7 +348,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ============================
      PROCESS
 ============================ -->
@@ -367,7 +382,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ============================
      GALLERY
 ============================ -->
@@ -401,7 +416,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ============================
      TESTIMONIALS
 ============================ -->
@@ -478,7 +493,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ============================
      PACKAGES
 ============================ -->
@@ -539,7 +554,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ============================
      FAQ
 ============================ -->
@@ -577,7 +592,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ============================
      CONTACT / CTA
 ============================ -->
@@ -620,7 +635,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ============================
      FOOTER
 ============================ -->
@@ -667,7 +682,7 @@
         <ul>
           <li><a href="#">📍 Jl. Raya Serpong No. 88</a></li>
           <li><a href="#">📞 0895-6357-54671</a></li>
-          <li><a href="#">✉️ info@autoprime.id</a></li>
+          <li><a href="#">✉️ <span class="__cf_email__" data-cfemail="a0c9cec6cfe0c1d5d4cfd0d2c9cdc58ec9c4">[email&#160;protected]</span></a></li>
           <li><a href="#">🕒 Senin–Sabtu 07:00–20:00</a></li>
         </ul>
       </div>
@@ -678,28 +693,28 @@
     </div>
   </div>
 </footer>
-
+ 
 <!-- ============================
      STICKY WHATSAPP
 ============================ -->
 <a href="https://wa.me/62895635754671?text=Halo%20saya%20mau%20booking%20servis" class="sticky-wa" target="_blank">
   💬 Chat WhatsApp — Booking Servis Sekarang
 </a>
-
+ 
 <!-- ============================
      SCRIPTS — LIBRARIES
 ============================ -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+ 
 <!-- ============================
      SCRIPTS — APP LOGIC
 ============================ -->
 <script>
-
-  /* AOS */
-  AOS.init({ duration: 700, once: true, offset: 60 });
-
+ 
+  /* AOS — disable animasi di mobile agar elemen langsung visible (fix blank space) */
+  AOS.init({ duration: 700, once: true, offset: 60, disable: 'phone' });
+ 
   /* Navbar scrolled */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
@@ -707,17 +722,17 @@
     const prog = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
     document.getElementById('scroll-progress').style.width = prog + '%';
   });
-
+ 
   /* Mobile menu */
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
-
+ 
   /* Hero slideshow */
   const slides = document.querySelectorAll('.hero-slide');
   const dots   = document.querySelectorAll('.hero-dot');
   let currentSlide = 0;
-
+ 
   function goSlide(idx) {
     slides[currentSlide].classList.remove('active');
     dots[currentSlide].classList.remove('active');
@@ -725,9 +740,9 @@
     slides[currentSlide].classList.add('active');
     dots[currentSlide].classList.add('active');
   }
-
+ 
   setInterval(() => goSlide((currentSlide + 1) % slides.length), 5000);
-
+ 
   /* Stats counter (trigger on scroll) */
   function animateCounters() {
     document.querySelectorAll('.stat-num[data-target]').forEach(el => {
@@ -735,7 +750,7 @@
       const cntEl   = el.querySelector('.cnt');
       const isFloat = target % 1 !== 0;
       let start = 0;
-
+ 
       const step = (ts) => {
         if (!start) start = ts;
         const p = Math.min((ts - start) / 1800, 1);
@@ -746,7 +761,7 @@
       requestAnimationFrame(step);
     });
   }
-
+ 
   let countersTriggered = false;
   new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !countersTriggered) {
@@ -754,13 +769,13 @@
       animateCounters();
     }
   }, { threshold: 0.3 }).observe(document.querySelector('.stats-section'));
-
+ 
   /* Hero stat counters (on load) */
   document.querySelectorAll('.hero-stat-num[data-count]').forEach(el => {
     const target = parseInt(el.dataset.count);
     const suffix = el.querySelector('span').textContent;
     let start = 0;
-
+ 
     const s = (ts) => {
       if (!start) start = ts;
       const p = Math.min((ts - start) / 1500, 1);
@@ -769,7 +784,7 @@
     };
     setTimeout(() => requestAnimationFrame(s), 500);
   });
-
+ 
   /* Swiper testimonials */
   new Swiper('.testiSwiper', {
     loop: true,
@@ -786,7 +801,7 @@
       1100: { slidesPerView: 3 }
     }
   });
-
+ 
   /* FAQ accordion */
   function toggleFaq(el) {
     const item   = el.closest('.faq-item');
@@ -800,13 +815,13 @@
       el.querySelector('.faq-arrow').textContent = '▲';
     }
   }
-
+ 
   /* Sticky WA show/hide */
   const stickyWa = document.querySelector('.sticky-wa');
   stickyWa.style.opacity       = '0';
   stickyWa.style.pointerEvents = 'none';
   stickyWa.style.transition    = 'opacity 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease';
-
+ 
   window.addEventListener('scroll', () => {
     const show = window.scrollY >= 200;
     stickyWa.style.opacity       = show ? '1' : '0';
