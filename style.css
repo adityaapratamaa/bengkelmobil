@@ -355,6 +355,7 @@ body::before {
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh; /* fix: pakai small viewport height agar tidak terpengaruh address bar mobile */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -1646,6 +1647,21 @@ body::before {
   .nav-links,
   .nav-cta .btn-outline { display: none; }
   .hamburger            { display: flex; }
+
+  /* Fix: navbar "Hubungi Kami" button agar tidak wrap di mobile */
+  .nav-cta .btn-primary {
+    padding: 10px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  /* Fix: sticky WA button agar tidak wrap teks di mobile */
+  .sticky-wa {
+    font-size: 13px;
+    padding: 13px 16px;
+    white-space: nowrap;
+    width: calc(100% - 32px);
+  }
 
   /* Hero */
   .hero               { padding: 60px 0 80px; }
