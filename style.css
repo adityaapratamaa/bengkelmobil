@@ -1665,19 +1665,6 @@ body::before {
     width: calc(100% - 32px);
   }
 
-  /* FIX AOS: paksa semua elemen data-aos langsung visible di mobile
-     Tanpa ini, elemen invisible (opacity:0) sampai di-scroll → tampak blank */
-  [data-aos] {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    pointer-events: auto !important;
-  }
-  [data-aos].aos-animate {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
   /* FIX PADDING: kurangi padding section dari 120px → 60px di mobile */
   .services        { padding: 60px 0; }
   .about           { padding: 60px 0; }
